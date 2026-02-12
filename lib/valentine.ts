@@ -23,6 +23,11 @@ export function isYearUnlocked(year: number, now = nowNY()) {
   return now >= unlockDate(year);
 }
 
+export function upcomingValentineYear(now = nowNY()) {
+  const unlock = unlockDate(now.year);
+  return now < unlock ? now.year : now.year + 1;
+}
+
 export function countdownToUnlock(now = nowNY()) {
   const unlock = unlockDate(now.year);
   if (now >= unlock) return null;

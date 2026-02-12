@@ -58,7 +58,7 @@ export default async function LoginPage({ searchParams }: LoginPageProps) {
 
     await setSessionCookie(initials);
 
-    const destination = fromRaw || "/write";
+    const destination = fromRaw || "/";
     redirect(destination);
   }
 
@@ -66,8 +66,9 @@ export default async function LoginPage({ searchParams }: LoginPageProps) {
     <main>
       <section className="card">
         <div className="hero">
+          <p className="script-accent">Welcome back</p>
           <h1>Welcome back, lovebirds.</h1>
-          <p>
+          <p className="hero-subtext">
             Enter your initials and secret password to unlock this year's time
             capsule.
           </p>
@@ -77,17 +78,26 @@ export default async function LoginPage({ searchParams }: LoginPageProps) {
         ) : null}
         <form action={handleLogin}>
           <input type="hidden" name="from" value={fromValue} />
-          <label>
+          <label className="sr-only" htmlFor="initials">
             Initials
-            <select name="initials" defaultValue="ACW">
-              <option value="ACW">ACW</option>
-              <option value="SLS">SLS</option>
-            </select>
           </label>
-          <label>
+          <select name="initials" id="initials" defaultValue="" aria-label="Initials">
+            <option value="" disabled>
+              Select initials
+            </option>
+            <option value="ACW">ACW</option>
+            <option value="SLS">SLS</option>
+          </select>
+          <label className="sr-only" htmlFor="password">
             Password
-            <input name="password" type="password" />
           </label>
+          <input
+            id="password"
+            name="password"
+            type="password"
+            placeholder="Password"
+            aria-label="Password"
+          />
           <div className="notice">Hint: lovebirds</div>
           <button className="button" type="submit">
             Unlock the Capsule

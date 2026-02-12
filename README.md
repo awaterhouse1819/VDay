@@ -1,6 +1,6 @@
-# Valentine Time Capsule
+# Gay4U Time Capsule
 
-A private Valentine time capsule for ACW and SLS. Built with Next.js App Router, Supabase Postgres, and Luxon.
+A private time capsule for Anna and Samara. Built with Next.js App Router, Supabase Postgres, and Luxon.
 
 ## Stack
 

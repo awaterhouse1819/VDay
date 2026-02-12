@@ -3,6 +3,11 @@ import bcrypt from "bcryptjs";
 export const PARTNERS = ["ACW", "SLS"] as const;
 export type PartnerId = (typeof PARTNERS)[number];
 
+export const PARTNER_NAMES: Record<PartnerId, string> = {
+  ACW: "Anna",
+  SLS: "Samara"
+};
+
 export function isPartnerId(value: string): value is PartnerId {
   return PARTNERS.includes(value as PartnerId);
 }
